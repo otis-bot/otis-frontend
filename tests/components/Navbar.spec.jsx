@@ -1,21 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {
-  renderIntoDocument,
-  scryRenderedDOMComponentsWithTag
-} from 'react-addons-test-utils';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import Navbar from '../../src/js/components/Navbar';
 
-describe('Navbar', () => {
+describe('Navbar Component', () => {
 
   it('renders 3 anchor tags', () => {
-    const component = renderIntoDocument(
-      <Navbar />
-    );
-    const anchors = scryRenderedDOMComponentsWithTag(component, 'a');
-
-    expect(anchors.length).to.equal(3);
+    const navbarComponent = shallow(<Navbar />);
+    expect(navbarComponent.find('a')).to.have.length(3);
   });
 
 });
