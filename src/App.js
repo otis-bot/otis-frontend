@@ -14,13 +14,16 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
-ReactDOM.render(
+const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={ApplicationLayout}>
         <IndexRoute component={Welcome} />
       </Route>
     </Router>
-  </Provider>,
-  document.getElementById('app')
+  </Provider>
+);
+
+ReactDOM.render(
+  router, document.getElementById('app')
 );
