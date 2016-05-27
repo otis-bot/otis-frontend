@@ -11,12 +11,12 @@ import rootReducer from './js/reducers/index';
 const posts = [
   {
     "name": "John Doe",
-    "caption": "I wish I was a real person.",
+    "comment": "I wish I was a real person.",
     "id":"1161022966406956503"
   },
   {
     "name": "James Dean",
-    "caption": "Singing is amazing.",
+    "comment": "Singing is amazing.",
     "id":"1161022966406956504"
   }
 ]

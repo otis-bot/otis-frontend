@@ -1,4 +1,5 @@
 import React from 'react';
+import Post from './Post'
 
 export default class Welcome extends React.Component {
 
@@ -13,6 +14,7 @@ export default class Welcome extends React.Component {
           <h2 className="text-center">
             Use the latest web development technologies.
           </h2>
+          {this.props.name}
         </div>
       </div>
     );
