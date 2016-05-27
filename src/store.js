@@ -7,14 +7,23 @@ import thunk from 'redux-thunk';
 // import the root reducer
 import rootReducer from './js/reducers/index';
 
-// import data
-
+// temporary import data
+const posts = [
+  {
+    "name": "John Doe",
+    "caption": "I wish I was a real person.",
+    "id":"1161022966406956503"
+  },
+  {
+    "name": "James Dean",
+    "caption": "Singing is amazing.",
+    "id":"1161022966406956504"
+  }
+]
 
 // object for the initial data
 const initialState = {
-  /*Cars,
-    Bikes,
-    Trucks*/
+  posts
 };
 
 // for redux dev tools, thunk, and other enhancers

@@ -5,7 +5,7 @@ import Navbar from '../../src/js/components/Navbar';
 
 describe('Navbar Component', () => {
 
-  it('renders 3 anchor tags', () => {
+  it('Renders 3 anchor tags', () => {
     const navbarComponent = shallow(<Navbar />);
     expect(navbarComponent.find('a')).to.have.length(3);
   });
