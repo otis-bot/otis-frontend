@@ -14,7 +14,7 @@ describe('ApplicationLayout Component', () => {
     appLayoutComponent = shallow(<ApplicationLayout {...posts} />);
   });
 
-  it('Renders 2 div Tags', () => {
-    expect(appLayoutComponent.find('div')).to.have.length(2);
+  it('Renders 1 div Tags', () => {
+    expect(appLayoutComponent.find('div')).to.have.length(1);
   });
 });

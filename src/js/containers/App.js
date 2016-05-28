@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // Imported Components
-import ApplicationLayout from '../components/ApplicationLayout'
+import ApplicationLayout from '../components/ApplicationLayout';
+import Navbar from '../components/Navbar';
 
 // Imported Actions
 import * as actions from '../actions/index'
@@ -22,7 +23,7 @@ class AppContainer extends React.Component {
   render() {
     return (
       <div>
-        <ApplicationLayout {...this.props} />
+        {React.cloneElement(this.props.children, { ...this.props, key: undefined, ref: undefined })}
       </div>
     );
   }
