@@ -5,8 +5,8 @@ import posts from '../../src/js/reducers/posts';
 
 describe('posts Reducer', () => {
 
-  it('Waiting for Testing', () => {
-    return true;
+  it('Returns same state when given mock action', () => {
+    expect(posts(1, 'MOCK_ACTION')).to.equal(1);
   });
 
 });
