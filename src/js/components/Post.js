@@ -4,8 +4,8 @@ export default class Post extends React.Component {
   render() {
     return (
       <div>
-        This Is A Post
-        {this.props.name}: {this.props.comment}
+        <h4 className="post-name">Name: {this.props.post.name}</h4>
+        <h4 className="post-comment">Comment: {this.props.post.comment}</h4>
       </div>
     );
   }

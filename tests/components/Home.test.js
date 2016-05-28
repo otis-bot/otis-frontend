@@ -1,20 +1,21 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import ApplicationLayout from '../../src/js/components/ApplicationLayout';
+import Home from '../../src/js/components/Home';
 
-describe('ApplicationLayout Component', () => {
-  var appLayoutComponent
+describe('Home Component', () => {
+  var homeComponent
   const posts = [
     { name: "John Doe", comment: "I wish I was a real person.", id: 1 },
     { name: "Roger Reynolds", comment: "This is a comment.", id: 2 }
   ];
 
   beforeEach(() => {
-    appLayoutComponent = shallow(<ApplicationLayout {...posts} />);
+    homeComponent = shallow(<Home posts={posts}/>);
   });
 
   it('Renders 2 div Tags', () => {
-    expect(appLayoutComponent.find('div')).to.have.length(2);
+    expect(homeComponent.find('div')).to.have.length(2);
   });
+
 });

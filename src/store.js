@@ -12,12 +12,12 @@ const posts = [
   {
     "name": "John Doe",
     "comment": "I wish I was a real person.",
-    "id":"1161022966406956503"
+    "id":"1"
   },
   {
     "name": "James Dean",
     "comment": "Singing is amazing.",
-    "id":"1161022966406956504"
+    "id":"2"
   }
 ]
 
