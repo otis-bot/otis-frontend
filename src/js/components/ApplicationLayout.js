@@ -1,13 +1,12 @@
 import React from 'react';
 import Navbar from './Navbar';
-import Home from './Home';
 
 export default class ApplicationLayout extends React.Component {
   render() {
     return (
       <div>
         <Navbar />
-        <Home {...this.props} />
+        {React.cloneElement(this.props.children, { ...this.props, key: undefined, ref: undefined })}
       </div>
     );
   }

@@ -7,7 +7,7 @@ import './css/application.scss';
 
 // Import Components for Routing
 import App from './js/containers/App';
-import ApplicationLayout from './js/components/ApplicationLayout';
+import Home from './js/components/Home';
 import NotFound from './js/components/NotFound'
 
 // Router
@@ -19,7 +19,7 @@ const router = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={ApplicationLayout} />
+        <IndexRoute component={Home} />
         <Route path="*" component={NotFound} />
       </Route>
     </Router>
