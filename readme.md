@@ -1,3 +1,5 @@
+[ ![Codeship Status for otis-bot/otis-frontend](https://codeship.com/projects/6261a3e0-f9da-0133-fbdb-3e06b6583c43/status?branch=master)](https://codeship.com/projects/151384)
+
 #Otis-Bot Front-End
 
 Otis-Bot Front-End is an Otis project, built and maintained by students and graduates of the Firehose Project. Otis-Bot Front-End is a ES6, React, Redux, and Webpack project.
