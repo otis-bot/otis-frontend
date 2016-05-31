@@ -1,31 +1,23 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
+import store from '../../src/store';
 import Home from '../../src/js/containers/Home';
 
 describe('Home Container', () => {
   var homeContainer
 
-  const posts = [
-    { name: "John Doe", comment: "I wish I was a real person.", id: 1 },
-    { name: "Roger Reynolds", comment: "This is a comment.", id: 2 }
-  ];
-
-  const store = {
-    posts: posts
-  };
-
   beforeEach(() => {
-    homeContainer = shallow(
+    homeContainer = render(
       <Provider store={store}>
         <Home />
       </Provider>
     );
   });
 
-  it('Renders 2 div Tags', () => {
-    expect(homeContainer.find('div')).to.have.length(2);
+  it('Renders 4 div Tags, 2 from Home, 1 from 2 Post component', () => {
+    expect(homeContainer.find('div')).to.have.length(4);
   });
 
 });

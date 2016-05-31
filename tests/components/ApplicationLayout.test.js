@@ -11,6 +11,6 @@ describe('ApplicationLayout Component', () => {
   });
 
   it('Renders 1 div Tags', () => {
-    expect(appLayoutComponent.find('div')).to.have.length(1);
+    expect(appLayoutComponent.find('div')).to.have.length(2);
   });
 });
