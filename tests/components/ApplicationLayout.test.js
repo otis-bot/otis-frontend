@@ -5,13 +5,9 @@ import ApplicationLayout from '../../src/js/components/ApplicationLayout';
 
 describe('ApplicationLayout Component', () => {
   var appLayoutComponent
-  const posts = [
-    { name: "John Doe", comment: "I wish I was a real person.", id: 1 },
-    { name: "Roger Reynolds", comment: "This is a comment.", id: 2 }
-  ];
 
   beforeEach(() => {
-    appLayoutComponent = shallow(<ApplicationLayout {...posts} />);
+    appLayoutComponent = shallow(<ApplicationLayout />);
   });
 
   it('Renders 1 div Tags', () => {

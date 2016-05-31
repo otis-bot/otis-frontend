@@ -6,8 +6,8 @@ import ReactDOM from 'react-dom';
 import './css/application.scss';
 
 // Import Components for Routing
-import App from './js/containers/App';
-import Home from './js/components/Home';
+import ApplicationLayout from './js/components/ApplicationLayout';
+import Home from './js/containers/Home';
 import NotFound from './js/components/NotFound'
 
 // Router
@@ -18,7 +18,7 @@ import store, { history } from './store';
 const router = (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={App}>
+      <Route path="/" component={ApplicationLayout}>
         <IndexRoute component={Home} />
         <Route path="*" component={NotFound} />
       </Route>
