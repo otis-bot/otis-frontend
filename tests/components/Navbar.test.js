@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import Navbar from '../../src/js/components/Navbar';
 
 describe('Navbar Component', () => {
-  var navbarComponent
+  var navbarComponent;
 
   beforeEach(() => {
     navbarComponent = shallow(<Navbar />);

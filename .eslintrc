@@ -1,4 +1,5 @@
 {
+  "parser": "babel-eslint",
   "ecmaFeatures": {
     "jsx": true,
     "modules": true
@@ -7,10 +8,10 @@
     "browser": true,
     "node": true
   },
-  "parser": "babel-eslint",
   "rules": {
     "quotes": [2, "single"],
     "strict": [2, "never"],
+    "semi": ["error", "always"],
     "babel/generator-star-spacing": 1,
     "babel/new-cap": 1,
     "babel/object-shorthand": 1,
@@ -23,5 +24,9 @@
   "plugins": [
     "babel",
     "react"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
   ]
 }

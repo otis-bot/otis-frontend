@@ -4,7 +4,8 @@ import { expect } from 'chai';
 import Post from '../../src/js/components/Post';
 
 describe('Post Component', () => {
-  var postComponent
+  var postComponent;
+  
   const post = { name: "John Doe", comment: "I wish I was a real person.", id: 1 };
 
   beforeEach(() => {

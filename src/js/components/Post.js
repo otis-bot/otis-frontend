@@ -9,4 +9,9 @@ export default class Post extends React.Component {
       </div>
     );
   }
+}
+
+// Proptype Validation
+Post.propTypes = {
+  post: React.PropTypes.string
 };

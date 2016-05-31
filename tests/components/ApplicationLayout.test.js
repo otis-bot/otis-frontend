@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import ApplicationLayout from '../../src/js/components/ApplicationLayout';
 
 describe('ApplicationLayout Component', () => {
-  var appLayoutComponent
+  var appLayoutComponent;
 
   beforeEach(() => {
     appLayoutComponent = shallow(<ApplicationLayout />);

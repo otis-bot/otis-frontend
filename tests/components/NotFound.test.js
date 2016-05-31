@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import NotFound from '../../src/js/components/NotFound';
 
 describe('NotFound Component', () => {
-  var notFoundComponent
+  var notFoundComponent;
 
   beforeEach(() => {
     notFoundComponent = shallow(<NotFound />);

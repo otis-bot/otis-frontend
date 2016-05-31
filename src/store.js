@@ -10,16 +10,16 @@ import rootReducer from './js/reducers/index';
 // temporary import data
 const posts = [
   {
-    "name": "John Doe",
-    "comment": "I wish I was a real person.",
-    "id":"1"
+    'name': 'John Doe',
+    'comment': 'I wish I was a real person.',
+    'id':'1'
   },
   {
-    "name": "James Dean",
-    "comment": "Singing is amazing.",
-    "id":"2"
+    'name': 'James Dean',
+    'comment': 'Singing is amazing.',
+    'id':'2'
   }
-]
+];
 
 // object for the initial data
 const initialState = {
@@ -29,6 +29,7 @@ const initialState = {
 // for redux dev tools, thunk, and other enhancers
 const enhancers = compose(
   applyMiddleware(thunk),
+  // eslint-disable-next-line no-use-before-define
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 

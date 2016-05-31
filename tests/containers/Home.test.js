@@ -2,11 +2,15 @@ import React from 'react';
 import { render } from 'enzyme';
 import { expect } from 'chai';
 import { Provider } from 'react-redux';
+
+//Store for testing
 import store from '../../src/store';
+
+//Container for testing
 import Home from '../../src/js/containers/Home';
 
 describe('Home Container', () => {
-  var homeContainer
+  var homeContainer;
 
   beforeEach(() => {
     homeContainer = render(

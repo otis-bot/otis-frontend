@@ -8,10 +8,10 @@ import './css/application.scss';
 // Import Components for Routing
 import ApplicationLayout from './js/components/ApplicationLayout';
 import Home from './js/containers/Home';
-import NotFound from './js/components/NotFound'
+import NotFound from './js/components/NotFound';
 
 // Router
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 
@@ -20,8 +20,8 @@ const router = (
     <Router history={history}>
       <Route path="/" component={ApplicationLayout}>
         <IndexRoute component={Home} />
-        <Route path="*" component={NotFound} />
       </Route>
+      <Route path="*" component={NotFound} />
     </Router>
   </Provider>
 );
