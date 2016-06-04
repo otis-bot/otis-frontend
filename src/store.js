@@ -7,19 +7,29 @@ import thunk from 'redux-thunk';
 // import the root reducer
 import rootReducer from './js/reducers/index';
 
-// import data
-
+// temporary import data
+const posts = [
+  {
+    'name': 'John Doe',
+    'comment': 'I wish I was a real person.',
+    'id':'1'
+  },
+  {
+    'name': 'James Dean',
+    'comment': 'Singing is amazing.',
+    'id':'2'
+  }
+];
 
 // object for the initial data
 const initialState = {
-  /*Cars,
-    Bikes,
-    Trucks*/
+  posts
 };
 
 // for redux dev tools, thunk, and other enhancers
 const enhancers = compose(
   applyMiddleware(thunk),
+  // eslint-disable-next-line no-use-before-define
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
