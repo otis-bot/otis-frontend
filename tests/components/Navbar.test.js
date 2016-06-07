@@ -22,4 +22,8 @@ describe('Navbar Component', () => {
     expect(navbarComponent.find('nav')).to.have.length(1);
   });
 
+  it('Renders 2 span Tags', () => {
+    expect(navbarComponent.find('span')).to.have.length(2);
+  });
+
 });
