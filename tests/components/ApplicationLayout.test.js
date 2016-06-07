@@ -6,11 +6,15 @@ import ApplicationLayout from '../../src/js/components/ApplicationLayout';
 describe('ApplicationLayout Component', () => {
   var appLayoutComponent;
 
+  const location = {
+    search: "123123123123123"
+  };
+
   beforeEach(() => {
-    appLayoutComponent = shallow(<ApplicationLayout />);
+    appLayoutComponent = shallow(<ApplicationLayout location={location}/>);
   });
 
-  it('Renders 1 div Tags', () => {
+  it('Renders 2 div Tags', () => {
     expect(appLayoutComponent.find('div')).to.have.length(2);
   });
 });
