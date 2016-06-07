@@ -6,7 +6,7 @@ export default class ApplicationLayout extends React.Component {
     return (
       <div>
         <div className="main-container">
-          <Navbar />
+          <Navbar code={this.props.location.search}/>
           {this.props.children}
         </div>
       </div>
