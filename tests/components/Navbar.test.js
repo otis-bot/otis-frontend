@@ -10,8 +10,8 @@ describe('Navbar Component', () => {
     navbarComponent = shallow(<Navbar />);
   });
 
-  it('Renders 3 anchor Tags', () => {
-    expect(navbarComponent.find('a')).to.have.length(3);
+  it('Renders 2 anchor Tags', () => {
+    expect(navbarComponent.find('a')).to.have.length(2);
   });
 
   it('Renders div Tag', () => {
