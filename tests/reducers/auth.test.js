@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { authSlack } from '../../src/js/actions/authActions';
+import auth from '../../src/js/reducers/auth';
 
-describe('authActions Action', () => {
+describe('auth Reducer', () => {
 
   it('Waiting for Testing', () => {
     return true;

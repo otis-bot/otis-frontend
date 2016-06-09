@@ -3,6 +3,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
+import promiseMiddleware from 'redux-promise';
 
 // import the root reducer
 import rootReducer from './js/reducers/index';
@@ -29,6 +30,7 @@ const initialState = {
 // for redux dev tools, thunk, and other enhancers
 const enhancers = compose(
   applyMiddleware(thunk),
+  applyMiddleware(promiseMiddleware),
   // eslint-disable-next-line no-use-before-define
   window.devToolsExtension ? window.devToolsExtension() : f => f
 );
