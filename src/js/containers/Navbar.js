@@ -35,7 +35,7 @@ export default class Navbar extends React.Component {
             />
           }
           {this.props.isAuthenticated &&
-            <Logout onLogoutClick={() => dispatch(this.props.logoutUser())} />
+            <Logout logoutUser={this.props.logoutUser} />
           }
         </nav>
       </div>
@@ -45,7 +45,12 @@ export default class Navbar extends React.Component {
 
 // Proptype Validation
 Navbar.propTypes = {
-  code: React.PropTypes.string
+  code: React.PropTypes.string,
+  isAuthenticated: React.PropTypes.boolean,
+  query: React.PropTypes.object,
+  auth: React.PropTypes.object,
+  loginUser: React.PropTypes.func,
+  logoutUser: React.PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

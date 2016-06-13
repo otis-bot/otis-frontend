@@ -15,5 +15,6 @@ export default class ApplicationLayout extends React.Component {
 
 // Proptype Validation
 ApplicationLayout.propTypes = {
-  children: React.PropTypes.node
+  children: React.PropTypes.node,
+  location: React.PropTypes.object
 };

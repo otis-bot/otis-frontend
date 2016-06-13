@@ -45,14 +45,17 @@ const loginError = (message) => ({
 
 export const loginUser = (code) => (dispatch) => {
     // API Route for Slack Authentication
-    const url = urlFor('/auth/slack');
+    const url = urlFor('/api/v1/auth/slack');
     // We dispatch requestLogin to kickoff the call to the API
     dispatch(requestLogin(code));
 
+    // Post request with api url and code from slack
     axios({
       method: 'post',
-      url: url,
-      data: code
+      url,
+      data: {
+        code
+      }
     }).then(
         (res) => {
           if (!res.data.success) {
@@ -65,7 +68,9 @@ export const loginUser = (code) => (dispatch) => {
         })
       .catch(
         (err) => {
+          /* eslint-disable no-console */
           console.log(err);
+          /* eslint-enable no-console */
         });
 };
 

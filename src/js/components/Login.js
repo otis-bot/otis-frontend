@@ -1,5 +1,4 @@
 import React from 'react';
-import actions from '../actions/index';
 
 export default class Login extends React.Component {
 
@@ -18,9 +17,11 @@ export default class Login extends React.Component {
       </div>
     );
   }
-};
+}
 
 // Proptype Validation
 Login.propTypes = {
-  code: React.PropTypes.string
+  code: React.PropTypes.string,
+  isAuthenticated: React.PropTypes.boolean,
+  loginUser: React.PropTypes.func
 };
