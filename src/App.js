@@ -12,9 +12,14 @@ import Home from './js/containers/Home';
 import NotFound from './js/components/NotFound';
 
 // Router
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store, { history } from './store';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+// Store
+import configureStore from './store';
+const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store);
 
 const router = (
   <Provider store={store}>

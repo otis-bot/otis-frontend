@@ -36,7 +36,7 @@ class Home extends React.Component {
 
 // Proptype Validation
 Home.propTypes = {
-  posts: React.PropTypes.string
+  posts: React.PropTypes.array
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

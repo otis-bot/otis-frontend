@@ -1,11 +1,12 @@
 import React from 'react';
-import Navbar from './Navbar';
+import Navbar from '../containers/Navbar';
 
 export default class ApplicationLayout extends React.Component {
+
   render() {
     return (
       <div className="main-container">
-        <Navbar code={this.props.location.search}/>
+        <Navbar query={this.props.location.query}/>
         {this.props.children}
       </div>
     );
