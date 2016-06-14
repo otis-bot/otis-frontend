@@ -9,7 +9,7 @@ import throttle from 'lodash/throttle';
 import rootReducer from './js/reducers/index';
 
 // Localstorage methods
-import { loadState, saveState } from './localStorage';
+import { loadState, saveState } from './js/helpers/localStorage';
 
 // temporary import data
 const posts = [

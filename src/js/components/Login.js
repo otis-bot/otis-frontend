@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Login extends React.Component {
 
-  componentDidMount() {
+  componentWillMount() {
     if(this.props.code && !this.props.isAuthenticated) {
       this.props.loginUser(this.props.code);
     }
@@ -22,6 +22,6 @@ export default class Login extends React.Component {
 // Proptype Validation
 Login.propTypes = {
   code: React.PropTypes.string,
-  isAuthenticated: React.PropTypes.boolean,
+  isAuthenticated: React.PropTypes.bool,
   loginUser: React.PropTypes.func
 };

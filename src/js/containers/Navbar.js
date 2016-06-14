@@ -46,7 +46,7 @@ export default class Navbar extends React.Component {
 // Proptype Validation
 Navbar.propTypes = {
   code: React.PropTypes.string,
-  isAuthenticated: React.PropTypes.boolean,
+  isAuthenticated: React.PropTypes.bool,
   query: React.PropTypes.object,
   auth: React.PropTypes.object,
   loginUser: React.PropTypes.func,

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {push} from 'react-router-redux';
 import jwtDecode from 'jwt-decode';
 import urlFor from '../helpers/urlFor';
 
@@ -20,6 +21,7 @@ export const logoutUser = () => (dispatch) => {
   localStorage.removeItem('idToken');
   localStorage.removeItem('store');
   dispatch(receiveLogout());
+  dispatch(push('/'));
 };
 
 const requestLogin = (code) => ({
@@ -64,6 +66,7 @@ export const loginUser = (code) => (dispatch) => {
             localStorage.setItem('idToken', res.data.token);
             // Dispatch the success action
             dispatch(receiveLogin(res.data.token));
+            // dispatch(push('/'));
           }
         })
       .catch(
