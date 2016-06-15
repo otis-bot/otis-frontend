@@ -5,11 +5,12 @@ import auth from '../../src/js/reducers/auth';
 
 describe('auth Reducer', () => {
 
+  const initialState = {
+    isFetching: false,
+    isAuthenticated: false
+  };
+
   it('Handles default', () => {
-    const initialState = {
-      isFetching: false,
-      isAuthenticated: false
-    };
     const type = {};
     const newState = auth(initialState, type);
     expect(newState).to.eql({
@@ -19,10 +20,6 @@ describe('auth Reducer', () => {
   });
 
   it('Handles LOGIN_REQUEST', () => {
-    const initialState = {
-      isFetching: false,
-      isAuthenticated: false
-    };
     const type = { type: 'LOGIN_REQUEST' };
     const newState = auth(initialState, type);
     expect(newState).to.eql({
@@ -32,10 +29,6 @@ describe('auth Reducer', () => {
   });
 
   it('Handles LOGIN_SUCCESS', () => {
-    const initialState = {
-      isFetching: false,
-      isAuthenticated: false
-    };
     const type = {
       type: 'LOGIN_SUCCESS',
       user: 'user1'
@@ -50,10 +43,6 @@ describe('auth Reducer', () => {
   });
 
   it('Handles LOGIN_FAILURE', () => {
-    const initialState = {
-      isFetching: false,
-      isAuthenticated: false
-    };
     const type = { type: 'LOGIN_FAILURE' };
     const newState = auth(initialState, type);
     expect(newState).to.eql({
@@ -64,10 +53,6 @@ describe('auth Reducer', () => {
   });
 
   it('Handles LOGOUT_SUCCESS', () => {
-    const initialState = {
-      isFetching: false,
-      isAuthenticated: false
-    };
     const type = { type: 'LOGOUT_SUCCESS' };
     const newState = auth(initialState, type);
     expect(newState).to.eql({
@@ -77,10 +62,6 @@ describe('auth Reducer', () => {
   });
 
   it('Handles CLEAR_LOGIN_ERROR_MESSAGE', () => {
-    const initialState = {
-      isFetching: false,
-      isAuthenticated: false
-    };
     const type = { type: 'CLEAR_LOGIN_ERROR_MESSAGE' };
     const newState = auth(initialState, type);
     expect(newState).to.eql({

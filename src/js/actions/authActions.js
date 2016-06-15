@@ -38,43 +38,40 @@ const receiveLogin = (token) => ({
   user: jwtDecode(token)
 });
 
-const loginError = (message) => ({
+const loginError = (err) => ({
   type: 'LOGIN_FAILURE',
   isFetching: false,
   isAuthenticated: false,
-  message
+  err
 });
 
 export const loginUser = (code) => (dispatch) => {
-    // API Route for Slack Authentication
-    const url = urlFor('/api/v1/auth/slack');
-    // We dispatch requestLogin to kickoff the call to the API
-    dispatch(requestLogin(code));
+  // API Route for Slack Authentication
+  const url = urlFor('/api/v1/auth/slack');
+  // We dispatch requestLogin to kickoff the call to the API
+  dispatch(requestLogin(code));
 
-    // Post request with api url and code from slack
-    axios({
-      method: 'post',
-      url,
-      data: {
-        code
-      }
-    }).then(
-        (res) => {
-          if (!res.data.success) {
-            dispatch(loginError(res.data.message));
-          } else {
-            localStorage.setItem('idToken', res.data.token);
-            // Dispatch the success action
-            dispatch(receiveLogin(res.data.token));
-            // dispatch(push('/'));
-          }
-        })
-      .catch(
-        (err) => {
-          /* eslint-disable no-console */
-          console.log(err);
-          /* eslint-enable no-console */
-        });
+  // Post request with api url and code from slack
+  axios.post(url, { code })
+    .then(
+      (res) => {
+        if(res.data.auth_token) {
+          console.log(res);
+          localStorage.setItem('idToken', res.data.auth_token);
+          // Dispatch the success action
+          dispatch(receiveLogin(res.data.auth_token));
+          dispatch(push('/'));
+        } else {
+          dispatch(loginError(res));
+        }
+      })
+    .catch(
+      (err) => {
+        dispatch(loginError(err));
+        /* eslint-disable no-console */
+        console.log(err);
+        /* eslint-enable no-console */
+      });
 };
 
 export const clearLoginErrorMessage = () => ({
