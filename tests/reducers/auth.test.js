@@ -57,7 +57,8 @@ describe('auth Reducer', () => {
     const newState = auth(initialState, type);
     expect(newState).to.eql({
       isFetching: true,
-      isAuthenticated: false
+      isAuthenticated: false,
+      user: undefined
     });
   });
 
