@@ -27,15 +27,10 @@ export default class Navbar extends React.Component {
               Otis
             </a>
           </span>
-          {!this.props.isAuthenticated &&
-            <Login
-              code={this.props.query.code}
-              auth={this.props.auth}
-              loginUser={this.props.loginUser}
-            />
-          }
-          {this.props.isAuthenticated &&
-            <Logout logoutUser={this.props.logoutUser} />
+          { this.props.auth.isAuthenticated === false ?
+              <Login code={this.props.query.code} auth={this.props.auth} loginUser={this.props.loginUser} />
+            :
+              <Logout logoutUser={this.props.logoutUser} />
           }
         </nav>
       </div>

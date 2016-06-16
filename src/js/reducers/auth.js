@@ -25,7 +25,7 @@ export default function auth(
         ...state,
         isFetching: false,
         isAuthenticated: false,
-        authErrorMessage: action.message
+        authErrorMessage: action.error
       };
     }
     case 'LOGOUT_SUCCESS': {
