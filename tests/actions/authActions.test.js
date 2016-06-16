@@ -60,4 +60,21 @@ describe('auth Actions', () => {
     }, 1000);
   });
 
+
+  //logoutUser success
+  it('logoutUser expected actions are dispatched', () => {
+
+    const expectedActions = [
+      { type: 'LOGOUT_REQUEST', isFetching: true, isAuthenticated: true },
+      { type: 'LOGOUT_SUCCESS', isFetching: false, isAuthenticated: false }
+    ];
+
+    const store = mockStore();
+
+    store.dispatch(actions.logoutUser())
+
+    setTimeout(() => {
+      expect(store.getActions()).to.include(expectedActions);
+    }, 1000);
+  });
 });
