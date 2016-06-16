@@ -1,6 +1,5 @@
 import fetch from 'fetch-everywhere';
 import {push} from 'react-router-redux';
-import jwtDecode from 'jwt-decode';
 import urlFor from '../helpers/urlFor';
 
 const requestLogout = () => ({
@@ -35,7 +34,7 @@ const receiveLogin = (token) => ({
   type: 'LOGIN_SUCCESS',
   isFetching: false,
   isAuthenticated: true,
-  user: token //jwtDecode(token)
+  user: token
 });
 
 const loginError = (err) => ({
