@@ -1,4 +1,4 @@
-import axios from 'axios';
+import fetch from 'fetch-everywhere';
 import {push} from 'react-router-redux';
 import jwtDecode from 'jwt-decode';
 import urlFor from '../helpers/urlFor';
@@ -35,7 +35,7 @@ const receiveLogin = (token) => ({
   type: 'LOGIN_SUCCESS',
   isFetching: false,
   isAuthenticated: true,
-  user: jwtDecode(token)
+  user: token //jwtDecode(token)
 });
 
 const loginError = (err) => ({
@@ -52,26 +52,33 @@ export const loginUser = (code) => (dispatch) => {
   dispatch(requestLogin(code));
 
   // Post request with api url and code from slack
-  axios.post(url, { code })
-    .then(
+  fetch(url, {
+    method: 'post',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      code
+    })
+  }).then(
       (res) => {
-        if(res.data.auth_token) {
-          console.log(res);
-          localStorage.setItem('idToken', res.data.auth_token);
-          // Dispatch the success action
-          dispatch(receiveLogin(res.data.auth_token));
-          dispatch(push('/'));
-        } else {
-          dispatch(loginError(res));
-        }
-      })
-    .catch(
-      (err) => {
-        dispatch(loginError(err));
-        /* eslint-disable no-console */
-        console.log(err);
-        /* eslint-enable no-console */
-      });
+        return res.json();
+      }).then(
+          (json) => {
+            if (json.auth_token) {
+              localStorage.setItem('idToken', json.auth_token);
+              // Dispatch the success action
+              dispatch(receiveLogin(json.auth_token));
+              dispatch(push('/'));
+            }
+          }).catch(
+              (err) => {
+                dispatch(loginError(err));
+                /* eslint-disable no-console */
+                console.log('Error: ' + err);
+                /* eslint-enable no-console */
+              });
 };
 
 export const clearLoginErrorMessage = () => ({

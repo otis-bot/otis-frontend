@@ -5,52 +5,59 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import * as actions from '../../src/js/actions/authActions';
-import urlFor from '../../src/js/helpers/urlFor';
 
 describe('auth Actions', () => {
-  const middlewares = [thunk]; // middleware `redux-thunk`
+  //Fake Store and Middleware
+  const middlewares = [ thunk ];
   const mockStore = configureStore(middlewares);
-  const code = { code: '123123123123123123123' };
-  const url = urlFor();
-  const dummyData = { token: '123123123123' } ;
+
+  //Fake Data
+  const code = '78921dh1212dh18hx';
+  const auth_token = 'cg7q8w37gx8q7gd287G';
+  const url = 'https://otis-api.herokuapp.com';
 
   afterEach(() => {
     nock.cleanAll();
   });
 
-  //loginUser
+  //loginUser success
   it('loginUser expected actions are dispatched on success', () => {
     nock(url)
-      .post('/api/v1/auth/slack')
-      .reply(200, dummyData);
+      .post('/api/v1/auth/slack', { code: code })
+      .reply(200, { auth_token: auth_token });
 
     const expectedActions = [
-      { type: actions.LOGIN_REQUEST, isFetching: true, isAuthenticated: false, code },
-      { type: actions.LOGIN_SUCCESS, isFetching: false, isAuthenticated: true, user: undefined }
+      { type: 'LOGIN_REQUEST', isFetching: true, isAuthenticated: false, code: code },
+      { type: 'LOGIN_SUCCESS', isFetching: false, isAuthenticated: true, user: auth_token }
     ];
 
-    const store = mockStore({});
+    const store = mockStore();
 
-    return store.dispatch(actions.loginUser(code))
-      .then(() => {
-        expect(store.getActions()).to.eql(expectedActions);
-      });
+    store.dispatch(actions.loginUser(code))
+
+    setTimeout(() => {
+      expect(store.getActions()).to.include(expectedActions);
+    }, 1000);
   });
 
+  //loginUser failure
+  it('loginUser expected actions are dispatched on failure', () => {
+    nock(url)
+      .post('/api/v1/auth/slack', { code: code })
+      .replyWithError('Error')
 
-  // it('loginUser expected actions are dispatched on failure', (done) => {
-  //   nock(urlFor())
-  //     .post('/api/v1/auth/slack', code)
-  //     .reply(404)
-  //
-  //   const expectedActions = [
-  //     { type: 'LOGIN_REQUEST', body: { isFetching: true, isAuthenticated: false, code } },
-  //     { type: 'LOGIN_FAILURE', body: { isFetching: false, isAuthenticated: false } }
-  //   ];
-  //
-  //   const store = mockStore({ isFetching: false, isAuthenticated: false }, expectedActions, done());
-  //   store.dispatch(actions.loginUser());
-  //
-  // });
+    const expectedActions = [
+      { type: 'LOGIN_REQUEST', isFetching: true, isAuthenticated: false, code: code },
+      { type: 'LOGIN_FAILURE', isFetching: false, isAuthenticated: false, err: 'Error' }
+    ];
+
+    const store = mockStore();
+
+    store.dispatch(actions.loginUser(code))
+
+    setTimeout(() => {
+      expect(store.getActions()).to.include(expectedActions);
+    }, 1000);
+  });
 
 });
