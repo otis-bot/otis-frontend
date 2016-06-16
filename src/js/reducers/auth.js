@@ -32,7 +32,8 @@ export default function auth(
       return {
         ...state,
         isFetching: true,
-        isAuthenticated: false
+        isAuthenticated: false,
+        user: undefined
       };
     }
     case 'CLEAR_LOGIN_ERROR_MESSAGE': {
