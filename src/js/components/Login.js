@@ -1,4 +1,5 @@
 import React from 'react';
+import slackImg from '../../img/slack.jpg';
 
 export default class Login extends React.Component {
 
@@ -11,8 +12,10 @@ export default class Login extends React.Component {
   render() {
     return (
       <div>
-        <span className="slack-button">
-          <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=3123229467.43285485382"><img src="https://api.slack.com/img/sign_in_with_slack.png" /></a>
+        <span className="btn btn-primary slack-button">
+          <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=3123229467.43285485382">
+            <span className="sign-in">Sign In</span> <img className="slack-image" src={slackImg} />
+          </a>
         </span>
       </div>
     );

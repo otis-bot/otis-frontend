@@ -36,8 +36,8 @@ describe('Navbar Container', () => {
     expect(navbarContainer.find('nav')).to.have.length(1);
   });
 
-  it('Renders 2 span Tags', () => {
-    expect(navbarContainer.find('span')).to.have.length(2);
+  it('Renders 3 span Tags', () => {
+    expect(navbarContainer.find('span')).to.have.length(3);
   });
 
 });

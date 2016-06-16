@@ -4,7 +4,7 @@
   "description": "An application using WebPack, ReactJS, Redux, and ES6.",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack.config.prod.js",
-    "test": "NODE_ENV=production mocha './tests/**/*.test.js' --compilers js:babel-core/register --require ./tests/testHelpers.js 'tests/**/*.@(js|jsx)'",
+    "test": "NODE_ENV=production mocha './tests/**/*.test.js' --compilers js:babel-core/register --require ./tests/testHelpers.js 'tests/**/*.@(js|jsx)' --require ignore-styles",
     "test:watch": "npm run test -- --watch",
     "lint": "eslint src",
     "start": "node devServer.js"
@@ -34,6 +34,7 @@
     "express": "^4.13.4",
     "fetch": "^1.1.0",
     "fetch-everywhere": "^1.0.4",
+    "file-loader": "^0.8.5",
     "immutable": "^3.8.1",
     "install": "^0.8.1",
     "jwt-decode": "^2.0.1",
@@ -52,6 +53,7 @@
     "redux-thunk": "^2.1.0",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0",
@@ -63,6 +65,7 @@
     "chai-immutable": "^1.5.4",
     "enzyme": "^2.3.0",
     "exports-loader": "^0.6.3",
+    "ignore-styles": "^4.0.0",
     "imports-loader": "^0.6.5",
     "jsdom": "9.2.1",
     "jsdom-global": "2.0.0",
