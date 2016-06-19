@@ -1,5 +1,5 @@
 import React from 'react';
-import slackImg from '../../img/slack.jpg';
+import slackImg from '../../img/Slack.png';
 
 export default class Login extends React.Component {
 
