@@ -1,14 +1,13 @@
 import React from 'react';
-import Navbar from './Navbar';
+import Navbar from '../containers/Navbar';
 
 export default class ApplicationLayout extends React.Component {
+
   render() {
     return (
-      <div>
-        <div className="main-container">
-          <Navbar />
-          {this.props.children}
-        </div>
+      <div className="main-container">
+        <Navbar query={this.props.location.query}/>
+        {this.props.children}
       </div>
     );
   }
@@ -16,5 +15,6 @@ export default class ApplicationLayout extends React.Component {
 
 // Proptype Validation
 ApplicationLayout.propTypes = {
-  children: React.PropTypes.node
+  children: React.PropTypes.node,
+  location: React.PropTypes.object
 };

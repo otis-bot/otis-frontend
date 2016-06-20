@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 // Import CSS/SCSS
 import './css/application.scss';
+import './css/navbar.scss';
 
 // Import Components for Routing
 import ApplicationLayout from './js/components/ApplicationLayout';
@@ -11,9 +12,14 @@ import Home from './js/containers/Home';
 import NotFound from './js/components/NotFound';
 
 // Router
-import { Router, Route, IndexRoute } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store, { history } from './store';
+import { syncHistoryWithStore } from 'react-router-redux';
+
+// Store
+import configureStore from './store';
+const store = configureStore();
+const history = syncHistoryWithStore(browserHistory, store);
 
 const router = (
   <Provider store={store}>

@@ -1,0 +1,48 @@
+.navbar-default {
+  background-color: #2882b5;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  border:none;
+  border-color: #1c73a5;
+  border-width: 0 0 1px;
+  border-style: solid;
+  // height: 100px;
+  // min-height:40px;
+  color:#EEE;
+}
+
+.navbar-default a {
+  font-weight:bold;
+  color:white;
+}
+
+.nav-logo {
+  font-size: 40px;
+  float: left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.slack-button {
+  float: right;
+  position: relative;
+  margin: 5px;
+  padding: 5px;
+}
+
+.slack-image {
+  height: 80px;
+  width: 80px;
+  margin: -20px;
+}
+
+.sign-in {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.sign-out {
+  margin-right: 10px;
+  font-size: 16px;
+}

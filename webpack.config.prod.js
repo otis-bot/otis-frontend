@@ -13,6 +13,10 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.ProvidePlugin({
+      'Promise': 'exports?global.Promise!es6-promise',
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': "'production'"
@@ -38,6 +42,12 @@ module.exports = {
       test: /\.scss$/,
       include: path.join(__dirname, 'src'),
       loaders: ['style', 'css', 'sass']
+    }
+    // Image Loaders
+    {
+      test: /\.(jpg|png)$/,
+      include: path.join(__dirname, 'src'),
+      loader: 'url?limit=25000'
     }
     ]
   }
